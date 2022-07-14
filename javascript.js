@@ -36,8 +36,8 @@ function clearCalculator(){
     secondOperand = "0";
     textInput.value = "";
     clearNextInput = false;
-
 }
+
 function add (a, b) {
     return (a + b);
 }
@@ -56,6 +56,7 @@ function divide (a, b) {
 }
 
 function operate (num1, num2, operator) {
+    if (operator === "No Operator") return num1;
     clearNextInput = true;
     if (operator === "+") return add(num1, num2);
     if (operator === "-") return subtract(num1, num2);
