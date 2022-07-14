@@ -19,7 +19,7 @@ function processInput(a) {
         console.log("first operand: "  + firstOperand);
         console.log("second operand: " + secondOperand);
         console.log("operator: " + mathOperator);
-        textInput.value = operate(firstOperand, secondOperand, mathOperator);
+        textInput.value = operate(firstOperand, secondOperand, mathOperator).toFixed(8);
     }
     if (mathOperator != "No Operator") secondOperand = a;
     if (a === "+") mathOperator = "+";
