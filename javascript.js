@@ -2,7 +2,7 @@ const textInput = document.querySelector("#inputText");
 let mathOperator = "No Operator";
 let firstOperand = 0;
 let secondOperand = 0;
-
+let clearNextInput = false;
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
@@ -13,6 +13,7 @@ buttons.forEach((button) => {
 });
 
 function processInput(a) {
+    if (clearNextInput) clearCalculator();
     textInput.value = textInput.value + a;
     if (a === "=") {
         console.log("first operand: "  + firstOperand);
@@ -34,6 +35,7 @@ function clearCalculator(){
     firstOperand = "0";
     secondOperand = "0";
     textInput.value = "";
+    clearNextInput = false;
 
 }
 function add (a, b) {
@@ -53,6 +55,7 @@ function divide (a, b) {
 }
 
 function operate (num1, num2, operator) {
+    clearNextInput = true;
     if (operator === "+") return add(num1, num2);
     if (operator === "-") return subtract(num1, num2);
     if (operator === "*") return multiply(num1, num2);
